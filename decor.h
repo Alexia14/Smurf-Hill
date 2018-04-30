@@ -38,8 +38,8 @@ class Village : public Decor
     Q_OBJECT
 
     public:
-        Village(QString type, int posX, int posY, View *view);
 
+        Village(QString type, int posX, int posY, View *view);
         ImageDecor *getGrandS() {return this->grandS;}
         ImageDecor *getMaison1() {return this->maison1;}
         ImageDecor *getMaison2() {return this->maison2;}
@@ -84,7 +84,6 @@ class Foret : public Decor
         ImageDecor *getBaie() {return this->baie;}
         ImageDecor *getBle() {return this->ble;}
 
-
     private:
 
     protected slots:
@@ -106,7 +105,6 @@ class Foret1 : public Foret
     public:
 
         Foret1(QString type, int posX, int posY, View *view);
-
         ImageDecor *getArbre1() {return this->arbre1;}
         ImageDecor *getArbre2() {return this->arbre2;}
         ImageDecor *getArbre3() {return this->arbre3;}

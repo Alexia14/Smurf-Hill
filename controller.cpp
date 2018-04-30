@@ -88,14 +88,13 @@ void Controller::continueGame() {
     }
     file.close();
     startGame(decor, persoGentil, persoMechant);
-    PersoMechant *S5 = new PersoMechant(400, 50, 0, 2);
+    PersoMechant *S5 = new PersoMechant("S5", 400, 50, 0, 2);
     model->addPersoMechant(S5);
     view->addPersoNormaux(S5);
 
 
     this->timer->start(16);
     this->timerBle->start(1000);
-
 }
 
 void Controller::gameLoop() {

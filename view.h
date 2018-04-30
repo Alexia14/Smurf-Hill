@@ -81,6 +81,8 @@ class View : public QMainWindow
         void displayActionPaysan();
 
         void on_pushButton_2_clicked();
+        void displayActionCostaud();
+        void displayActionPaysan();
 
 private:
         Ui::View *ui;
