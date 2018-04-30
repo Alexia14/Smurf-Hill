@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QList>
+#include <QPointF>
 
 #include "autre.h"
 #include "action.h"
@@ -49,6 +50,11 @@ class PersoNormaux : public Perso
         void setPosX(int x) {this->posX = x;}
         void setPosY(int y) {this->posY = y;}
         void moveTo(int x, int y);
+        bool hasAction() {return !listActions->empty();}
+        Action *getFirstAction() {return listActions->first();}
+        void removeFirstAction() {this->listActions->removeFirst();}
+        void removeAllActions();
+        QPointF *getDestination();
 
     public slots:
         void checkAction();
@@ -85,7 +91,6 @@ class PersoGentil : public PersoNormaux
         int deplacementX;
         int deplacementY;
         int distancePositionClicked;
-        QList<Action*> *listActions = new QList<Action*>;
 
 };
 
@@ -108,7 +113,6 @@ class PersoMechant : public PersoNormaux
         int deplacementX;
         int deplacementY;
         //int distancePositionClicked;
-        QList<Action*> *listActions = new QList<Action*>;
 
 };
 

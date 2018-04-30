@@ -15,6 +15,7 @@
 #include <QGraphicsPixmapItem>
 #include <QMessageBox>
 #include <QMediaPlayer>
+#include <QPointF>
 
 class Village;
 class Foret;
@@ -25,6 +26,7 @@ class Foret4;
 class Foret5;
 class Foret6;
 class Foret7;
+class Controller;
 
 namespace Ui {
     class View;
@@ -49,7 +51,13 @@ class View : public QMainWindow
         void addForet5(Foret5 *foret);
         void addForet6(Foret6 *foret);
         void addForet7(Foret7 *foret);
-        void addPersoNormaux(PersoNormaux *perso);
+
+        void addPersoNormaux(PersoGentil *perso);
+        void addPersoNormaux(PersoMechant *perso);
+
+        void onResourceWheatClicked(QPointF pos, int nbBle);
+        void onResourceAcornClicked(QPointF pos, int nbNoisette);
+        void onResourceBayClicked(QPointF pos, int nbBaie);
 
         QGraphicsScene *scene;
 
@@ -67,8 +75,10 @@ class View : public QMainWindow
         void hideMessageS();
         void film();
         void musique();
-        void sauvegarde() {this->controller->sauvegarde();}
-        void sq() {this->controller->sauverQuitter();}
+        void sauvegarde();
+        void sq();
+        void displayActionCostaud();
+        void displayActionPaysan();
 
         void on_pushButton_2_clicked();
 
