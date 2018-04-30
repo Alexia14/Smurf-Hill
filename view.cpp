@@ -32,7 +32,7 @@ View::View(QWidget *parent) :
     ui->setupUi(this);
 
     for (int i=0; i<11; i++) {
-        list_movies.append("/Users/Alexia/Desktop//images/movie"+QString::number(i));
+        list_movies.append("/Users/Alexia/Desktop/images/movie"+QString::number(i));
     }
 
     timer = new QTimer(this);
@@ -49,8 +49,7 @@ View::~View() {
     delete ui;
 }
 
-void View::film()
-{
+void View::film() {
     scene->clear();
     if (cptMovie == 11)
         cptMovie = 0;
@@ -63,15 +62,43 @@ void View::film()
     cptMovie++;
 }
 
-void View::on_pushButton_clicked() {
+void View::on_pushButton_clicked() { // Bouton Jouer
     timer->disconnect();
-    this->controller->startGame();
+    QString listDecor = "V 600 600 F1 1000 200 F2 1500 100 F3 2000 100 F4 2500 350 F5 2000 750 F6 2500 900 F7 100 100 ";
+    QString listPersoGentil = "0 0 0 10 50 0 0 10 50 50 0 2 100 50 0 2 ";
+    QString listPersoMechant = "150 50 0 10 ";
+    this->controller->startGame(listDecor, listPersoGentil, listPersoMechant);
+}
+
+void View::on_pushButton_2_clicked() { // Bouton Reprendre
+    timer->disconnect();
+    this->controller->continueGame();
 }
 
 void View::installScene() {
 
     this->menuDisplay = false;
     scene->clear(); // Supprime le chargement
+
+    QMenu *menu = this->menuBar()->addMenu("Fichier");
+
+    QAction *sauver = new QAction("Sauver", this);
+    sauver = menu->addAction("Sauver");
+    sauver->setShortcut(QKeySequence("Ctrl+S"));
+    sauver->setToolTip("Sauvegarder la partie");
+    connect(sauver, SIGNAL(triggered()), this, SLOT(sauvegarde()));
+
+    QAction *SQ = new QAction("Sauver et Quitter", this);
+    SQ = menu->addAction("Sauver et Quitter");
+    SQ->setToolTip("Sauvegarder la partie et quitter le jeu");
+    connect(SQ, SIGNAL(triggered()), this, SLOT(sq()));
+
+    QAction *quitter = new QAction("Quitter", this);
+    quitter = menu->addAction("Quitter");
+    quitter->setShortcut(QKeySequence("Ctrl+Q"));
+    quitter->setToolTip("Quitter le jeu");
+    connect(quitter, SIGNAL(triggered()), this, SLOT(close()));
+
     this->setCentralWidget(ui->graphicsView);
     scene->setSceneRect(0,0,3000,2000); // make the scene 800x600 instead of infinity by infinity (default)
     // make the newly created scene the scene to visualize (since Game is a QGraphicsView Widget,
@@ -82,6 +109,18 @@ void View::installScene() {
     ui->graphicsView->setFixedSize(1155,650);
     //QObject::connect(scene, SIGNAL(clicked()), this, SLOT(test));
 
+}
+
+void View::musique() {
+
+    generique = !generique;
+    if (generique == true) {
+        this->player = new QMediaPlayer;
+        this->player->setMedia(QUrl::fromLocalFile("/Users/Alexia/Desktop/images/generique.mp3"));
+        this->player->setVolume(50);
+        this->player->play();
+    }
+    else this->player->stop();
 }
 
 void View::addVillage(Village *village) {
@@ -105,18 +144,6 @@ void View::addVillage(Village *village) {
     this->scene->addItem(village->getPuits());
     this->scene->addItem(village->getArbre2());
 
-}
-
-void View::musique() {
-
-    generique = !generique;
-    if (generique == true) {
-        this->player = new QMediaPlayer;
-        this->player->setMedia(QUrl::fromLocalFile("/Users/Alexia/Desktop/images/generique.mp3"));
-        this->player->setVolume(50);
-        this->player->play();
-    }
-    else this->player->stop();
 }
 
 void View::addForet1(Foret1 *foret) {
@@ -152,8 +179,44 @@ void View::addForet1(Foret1 *foret) {
     this->scene->addItem(foret->getBle());
 }
 
-/*
 void View::addForet2(Foret2 *foret) {
+    this->scene->addItem(foret->getArbre01());
+    this->scene->addItem(foret->getArbre02());
+    this->scene->addItem(foret->getArbre03());
+    this->scene->addItem(foret->getArbre04());
+    this->scene->addItem(foret->getArbre05());
+    this->scene->addItem(foret->getArbre06());
+    this->scene->addItem(foret->getArbre1());
+    this->scene->addItem(foret->getBuisson3());
+    this->scene->addItem(foret->getNoisette());
+
+    this->scene->addItem(foret->getArbre2());
+    this->scene->addItem(foret->getArbre3());
+    this->scene->addItem(foret->getArbre07());
+    this->scene->addItem(foret->getArbre4());
+    this->scene->addItem(foret->getArbre5());
+    this->scene->addItem(foret->getBuissonBaies1());
+    this->scene->addItem(foret->getBaie());
+    this->scene->addItem(foret->getArbre6());
+    this->scene->addItem(foret->getArbre7());
+    this->scene->addItem(foret->getArbre8());
+    this->scene->addItem(foret->getArbre9());
+    this->scene->addItem(foret->getArbre10());
+    this->scene->addItem(foret->getArbre11());
+    this->scene->addItem(foret->getArbre12());
+    this->scene->addItem(foret->getArbre13());
+    this->scene->addItem(foret->getBuisson1());
+    this->scene->addItem(foret->getBle());
+    this->scene->addItem(foret->getArbre14());
+    this->scene->addItem(foret->getBuisson2());
+
+}
+
+void View::addForet3(Foret3 *foret) {
+    this->scene->addItem(foret->getArbre01());
+    this->scene->addItem(foret->getBuissonBaies3());
+    this->scene->addItem(foret->getArbre02());
+    this->scene->addItem(foret->getBuissonBaies1());
     this->scene->addItem(foret->getArbre1());
     this->scene->addItem(foret->getArbre2());
     this->scene->addItem(foret->getArbre3());
@@ -163,15 +226,197 @@ void View::addForet2(Foret2 *foret) {
     this->scene->addItem(foret->getArbre7());
     this->scene->addItem(foret->getArbre8());
     this->scene->addItem(foret->getArbre9());
+
     this->scene->addItem(foret->getArbre10());
+    this->scene->addItem(foret->getBaie());
+    this->scene->addItem(foret->getBuissonBaies2());
+
+    this->scene->addItem(foret->getArbre11());
+    this->scene->addItem(foret->getArbre12());
+    this->scene->addItem(foret->getArbre13());
+    this->scene->addItem(foret->getSouche1());
+    this->scene->addItem(foret->getNoisette());
+
+    this->scene->addItem(foret->getArbre14());
+    this->scene->addItem(foret->getBuisson1());
+    this->scene->addItem(foret->getBuisson2());
+    this->scene->addItem(foret->getArbre15());
+    this->scene->addItem(foret->getBle());
+
+    this->scene->addItem(foret->getArbre16());
+    this->scene->addItem(foret->getArbre17());
 }
-*/
+
+void View::addForet4(Foret4 *foret) {
+    this->scene->addItem(foret->getArbre1());
+    this->scene->addItem(foret->getArbre2());
+    this->scene->addItem(foret->getArbre3());
+    this->scene->addItem(foret->getArbre4());
+    this->scene->addItem(foret->getArbre5());
+    this->scene->addItem(foret->getArbre6());
+    this->scene->addItem(foret->getBuisson1());
+    this->scene->addItem(foret->getBuisson2());
+    this->scene->addItem(foret->getNoisette());
+    this->scene->addItem(foret->getArbre7());
+    this->scene->addItem(foret->getArbre8());
+    this->scene->addItem(foret->getArbre9());
+    this->scene->addItem(foret->getArbre10());
+    this->scene->addItem(foret->getBuisson3());
+
+    this->scene->addItem(foret->getArbre11());
+    this->scene->addItem(foret->getBuisson6());
+    this->scene->addItem(foret->getBuisson7());
+    this->scene->addItem(foret->getArbre12());
+    this->scene->addItem(foret->getArbre13());
+    this->scene->addItem(foret->getBuisson4());
+    this->scene->addItem(foret->getBuisson5());
+    this->scene->addItem(foret->getArbre14());
+    this->scene->addItem(foret->getArbre15());
+    this->scene->addItem(foret->getBle());
+    this->scene->addItem(foret->getBaie());
+    this->scene->addItem(foret->getBuisson8());
+    this->scene->addItem(foret->getArbre16());
+    this->scene->addItem(foret->getArbre17());
+    this->scene->addItem(foret->getArbre18());
+    this->scene->addItem(foret->getArbre19());
+    this->scene->addItem(foret->getArbre20());
+
+    this->scene->addItem(foret->getArbre21());
+    this->scene->addItem(foret->getBuisson9());
+    this->scene->addItem(foret->getArbre22());
+    this->scene->addItem(foret->getArbre23());
+    this->scene->addItem(foret->getArbre24());
+    this->scene->addItem(foret->getArbre25());
+}
+
+void View::addForet5(Foret5 *foret) {
+    this->scene->addItem(foret->getArbre1());
+    this->scene->addItem(foret->getArbre2());
+    this->scene->addItem(foret->getArbre3());
+    this->scene->addItem(foret->getArbre4());
+    this->scene->addItem(foret->getArbre5());
+    this->scene->addItem(foret->getArbre6());
+    this->scene->addItem(foret->getBuissonBaies1());
+    this->scene->addItem(foret->getArbre7());
+    this->scene->addItem(foret->getArbre8());
+    this->scene->addItem(foret->getArbre9());
+    this->scene->addItem(foret->getArbre10());
+    this->scene->addItem(foret->getArbre11());
+    this->scene->addItem(foret->getArbre12());
+    this->scene->addItem(foret->getArbre13());
+    this->scene->addItem(foret->getArbre14());
+    this->scene->addItem(foret->getArbre15());
+
+    this->scene->addItem(foret->getNoisette());
+    this->scene->addItem(foret->getBle());
+    this->scene->addItem(foret->getBaie());
+
+    this->scene->addItem(foret->getArbre16());
+    this->scene->addItem(foret->getArbre17());
+    this->scene->addItem(foret->getArbre18());
+    this->scene->addItem(foret->getArbre19());
+    this->scene->addItem(foret->getArbre20());
+    this->scene->addItem(foret->getArbre21());
+    this->scene->addItem(foret->getArbre22());
+    this->scene->addItem(foret->getArbre23());
+    this->scene->addItem(foret->getArbre24());
+    this->scene->addItem(foret->getArbre25());
+    this->scene->addItem(foret->getBuissonBaies2());
+    this->scene->addItem(foret->getArbre26());
+    this->scene->addItem(foret->getArbre27());
+    this->scene->addItem(foret->getArbre28());
+    this->scene->addItem(foret->getArbre29());
+    this->scene->addItem(foret->getArbre30());
+}
+
+void View::addForet6(Foret6 *foret) {
+    this->scene->addItem(foret->getArbre1());
+    this->scene->addItem(foret->getArbre2());
+    this->scene->addItem(foret->getArbre3());
+    this->scene->addItem(foret->getBuisson1());
+    this->scene->addItem(foret->getArbre4());
+    this->scene->addItem(foret->getArbre5());
+    this->scene->addItem(foret->getArbre6());
+    this->scene->addItem(foret->getBuissonBaies1());
+    this->scene->addItem(foret->getArbre7());
+    this->scene->addItem(foret->getArbre8());
+    this->scene->addItem(foret->getArbre9());
+    this->scene->addItem(foret->getArbre10());
+    this->scene->addItem(foret->getArbre11());
+    this->scene->addItem(foret->getArbre12());
+    this->scene->addItem(foret->getArbre13());
+    this->scene->addItem(foret->getArbre14());
+    this->scene->addItem(foret->getArbre15());
+    this->scene->addItem(foret->getArbre16());
+    this->scene->addItem(foret->getArbre17());
+    this->scene->addItem(foret->getArbre18());
+    this->scene->addItem(foret->getArbre19());
+    this->scene->addItem(foret->getArbre20());
+    this->scene->addItem(foret->getArbre21());
+    this->scene->addItem(foret->getNoisette());
+    this->scene->addItem(foret->getBle());
+    this->scene->addItem(foret->getBaie());
+    this->scene->addItem(foret->getArbre22());
+    this->scene->addItem(foret->getArbre23());
+    this->scene->addItem(foret->getArbre24());
+    this->scene->addItem(foret->getArbre25());
+    this->scene->addItem(foret->getArbre26());
+}
+
+void View::addForet7(Foret7 *foret) {
+    this->scene->addItem(foret->getArbre1());
+    this->scene->addItem(foret->getArbre2());
+    this->scene->addItem(foret->getArbre3());
+    this->scene->addItem(foret->getArbre4());
+    this->scene->addItem(foret->getArbre5());
+    this->scene->addItem(foret->getArbre6());
+    this->scene->addItem(foret->getArbre7());
+    this->scene->addItem(foret->getArbre8());
+    this->scene->addItem(foret->getBuissonbaies1());
+    this->scene->addItem(foret->getArbre9());
+    this->scene->addItem(foret->getBuisson1());
+    this->scene->addItem(foret->getBuisson2());
+    this->scene->addItem(foret->getBuissonbaies2());
+    this->scene->addItem(foret->getArbre10());
+    this->scene->addItem(foret->getBaie());
+    this->scene->addItem(foret->getArbre11());
+    this->scene->addItem(foret->getArbre12());
+    this->scene->addItem(foret->getArbre13());
+    this->scene->addItem(foret->getArbre14());
+    this->scene->addItem(foret->getArbre15());
+    this->scene->addItem(foret->getArbre16());
+    this->scene->addItem(foret->getArbre17());
+    this->scene->addItem(foret->getArbre18());
+    this->scene->addItem(foret->getBuisson3());
+    this->scene->addItem(foret->getBuisson4());
+    this->scene->addItem(foret->getArbre19());
+    this->scene->addItem(foret->getBuissonbaies3());
+    this->scene->addItem(foret->getArbre20());
+    this->scene->addItem(foret->getArbre21());
+    this->scene->addItem(foret->getArbre22());
+    this->scene->addItem(foret->getSouche1());
+    this->scene->addItem(foret->getSouche2());
+    this->scene->addItem(foret->getArbre23());
+    this->scene->addItem(foret->getBuisson5());
+    this->scene->addItem(foret->getBuisson6());
+    this->scene->addItem(foret->getBuisson7());
+    this->scene->addItem(foret->getSouche3());
+    this->scene->addItem(foret->getArbre24());
+    this->scene->addItem(foret->getNoisette());
+    this->scene->addItem(foret->getArbre25());
+    this->scene->addItem(foret->getArbre26());
+    this->scene->addItem(foret->getArbre27());
+    this->scene->addItem(foret->getArbre28());
+    this->scene->addItem(foret->getArbre29());
+    this->scene->addItem(foret->getArbre30());
+    this->scene->addItem(foret->getBle());
+}
 
 void View::displayMessageSette() {
 
-    if (!this->message) {
+    if (!this->controller->isMessageDisplayed()) {
 
-        this->bulleMessageS = this->controller->getImageBulle();
+        this->bulleMessageS = this->controller->getImageBulleSette();
         this->scene->addItem(this->bulleMessageS);
 
         this->imageMessageS = this->controller->getImageSette();
@@ -193,7 +438,7 @@ void View::displayMessageGrandS() {
 
     if (!this->controller->isMessageDisplayed()) {
 
-        this->bulleMessageS = this->controller->getImageBulle();
+        this->bulleMessageS = this->controller->getImageBulleGrandS();
         this->scene->addItem(this->bulleMessageS);
 
         this->imageMessageS = this->controller->getImageGrandS();
@@ -269,4 +514,3 @@ void View::mousePressEvent(QMouseEvent *event) {
     }
 
 }
-

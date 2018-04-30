@@ -14,7 +14,7 @@ class Perso : public QObject
 
     public:
 
-        Perso(QString nom, int x, int y);
+        Perso(int x, int y);
         ~Perso();
 
         QString getNom() {return this->nom;}
@@ -29,7 +29,6 @@ class Perso : public QObject
         int posX;
         int posY;
 
-
 };
 
 class PersoNormaux : public Perso
@@ -39,7 +38,7 @@ class PersoNormaux : public Perso
 
     public:
 
-        PersoNormaux(QString nom, int x, int y, int pv=0, int vitesse=0);
+        PersoNormaux(int x, int y, int pv=0, int vitesse=0);
         ~PersoNormaux();
 
         int getPv() {return this->pv;}
@@ -74,7 +73,7 @@ class PersoGentil : public PersoNormaux
 
     public:
 
-        PersoGentil(QString nom, int x, int y, int pv=0, int vitesse=0);
+        PersoGentil(int x, int y, int pv=0, int vitesse=0);
         ~PersoGentil();
         //void moveTo(int x, int y);
         bool isFree() {return this->listActions->empty();}
@@ -97,7 +96,7 @@ class PersoMechant : public PersoNormaux
 
     public:
 
-        PersoMechant(QString nom, int x, int y, int pv=0, int vitesse=0);
+        PersoMechant(int x, int y, int pv=0, int vitesse=0);
         ~PersoMechant();
         //void moveTo(int x, int y);
         //bool isFree() {return this->listActions->empty();}

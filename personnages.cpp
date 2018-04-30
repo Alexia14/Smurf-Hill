@@ -6,8 +6,7 @@
 #include <QDebug>
 #include "qdebug.h"
 
-Perso::Perso(QString nom, int x, int y){
-    this->nom = nom;
+Perso::Perso(int x, int y){
     this->posX = x;
     this->posY = y;
 }
@@ -17,8 +16,8 @@ Perso::~Perso()
     delete this;
 }
 
-PersoNormaux::PersoNormaux(QString nom, int x, int y, int pv, int vitesse)
-    :Perso(nom, x, y) {
+PersoNormaux::PersoNormaux(int x, int y, int pv, int vitesse)
+    :Perso(x, y) {
 
     this->pv = pv;
     this->vitesse = vitesse;
@@ -151,7 +150,7 @@ PersoNormaux::~PersoNormaux()
     delete this;
 }
 
-PersoGentil::PersoGentil(QString nom, int x, int y, int pv, int vitesse):PersoNormaux(nom, x, y, pv, vitesse) {
+PersoGentil::PersoGentil(int x, int y, int pv, int vitesse):PersoNormaux(x, y, pv, vitesse) {
 
     setImagePerso(new Image("/Users/Alexia/Desktop/images/smurfHead.png"));
     this->imagePerso->setPos(posX, posY);
@@ -163,7 +162,7 @@ PersoGentil::~PersoGentil()
     delete this;
 }
 
-PersoMechant::PersoMechant(QString nom, int x, int y, int pv, int vitesse):PersoNormaux(nom, x, y, pv, vitesse) {
+PersoMechant::PersoMechant(int x, int y, int pv, int vitesse):PersoNormaux(x, y, pv, vitesse) {
 
     setImagePerso(new Image("/Users/Alexia/Desktop/images/BlackSmurf.png"));
     this->imagePerso->setPos(posX, posY);

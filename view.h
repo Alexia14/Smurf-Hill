@@ -20,6 +20,11 @@ class Village;
 class Foret;
 class Foret1;
 class Foret2;
+class Foret3;
+class Foret4;
+class Foret5;
+class Foret6;
+class Foret7;
 
 namespace Ui {
     class View;
@@ -38,7 +43,12 @@ class View : public QMainWindow
         void installScene();
         void addVillage(Village *village);
         void addForet1(Foret1 *foret);
-        //void addForet2(Foret2 *foret);
+        void addForet2(Foret2 *foret);
+        void addForet3(Foret3 *foret);
+        void addForet4(Foret4 *foret);
+        void addForet5(Foret5 *foret);
+        void addForet6(Foret6 *foret);
+        void addForet7(Foret7 *foret);
         void addPersoNormaux(PersoNormaux *perso);
 
         QGraphicsScene *scene;
@@ -57,8 +67,12 @@ class View : public QMainWindow
         void hideMessageS();
         void film();
         void musique();
+        void sauvegarde() {this->controller->sauvegarde();}
+        void sq() {this->controller->sauverQuitter();}
 
-    private:
+        void on_pushButton_2_clicked();
+
+private:
         Ui::View *ui;
         Controller *controller;
         void mousePressEvent(QMouseEvent *event);
