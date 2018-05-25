@@ -10,9 +10,9 @@ Feel free to contribute or discuss the game.
     * [Village][Village]
     * [Forests][Forests]
     * [Persos][Persos]
-     * [NicePerso][NicePerso]
-     * [MadPerso][MadPerso]
-     * [NonPlayerPerso][NonPlayerPerso]
+      * [NicePerso][NicePerso]
+      * [MadPerso][MadPerso]
+      * [NonPlayerPerso][NonPlayerPerso]
     * [Sceenshots][Screenshots]
   * [Team][Team]
   
