@@ -5,23 +5,23 @@ This game has been developed for a school project. This is a one player game bas
 Feel free to contribute or discuss the game.
 
 ## Contents
-  * [Install & Play] [Installation]
-  * [Gameplay] [Gameplay]
-    * [Village] [Village]
-    * [Forests] [Forests]
-    * [Persos] [Persos]
-     * [NicePerso] [NicePerso]
-     * [MadPerso] [MadPerso]
-     * [NonPlayerPerso] [NonPlayerPerso]
-    * [Sceenshots] [Screenshots]
-  * [Team] [Team]
+  * [Install & Play][Installation]
+  * [Gameplay][Gameplay]
+    * [Village][Village]
+    * [Forests][Forests]
+    * [Persos][Persos]
+     * [NicePerso][NicePerso]
+     * [MadPerso][MadPerso]
+     * [NonPlayerPerso][NonPlayerPerso]
+    * [Sceenshots][Screenshots]
+  * [Team][Team]
   
 ## Install & Play
 
 * Open QtCreator
 * New Project
 * In "Import Project" choose Git clone
-* In Repository add : ```https://github.com/UKyz/SmurfHill.git```
+* In Repository add : ```https://github.com/Alexia14/SmurfHill.git```
 * Continue
 * Run
 
@@ -83,12 +83,12 @@ Farmer Smurf, Baker Smurf, Hefty Smurf and Doctor Smurf are called the NonPlayer
 
 [Installation]: https://github.com/Alexia14/Smurf-Hill/blob/master/README.md#install--play
 [Qt]: https://www.qt.io/download
-[Requirements]: https://github.com/UKyz/SmurfHill/blob/master/README.md#requirements
+[Requirements]: https://github.com/Alexia14/Smurf-Hill/blob/master/README.md#requirements
 [Gameplay]: https://github.com/Alexia14/Smurf-Hill/blob/master/README.md#gameplay
 [Village]: https://github.com/Alexia14/Smurf-Hill/blob/master/README.md#village
 [Forests]: https://github.com/Alexia14/Smurf-Hill/blob/master/README.md#forests
 [Persos]: https://github.com/Alexia14/Smurf-Hill/blob/master/README.md#persos
-[NicePerso]: https://github.com/Alexia14/Smurf-Hill/UKyz/SmurfHill/blob/master/README.md#niceperso
+[NicePerso]: https://github.com/Alexia14/Smurf-Hill//blob/master/README.md#niceperso
 [MadPerso]: https://github.com/Alexia14/Smurf-Hill/blob/master/README.md#madperso
 [NonPlayerPerso]: https://github.com/Alexia14/Smurf-Hill/blob/master/README.md#nonplayerperso
 [Screenshots]: https://github.com/Alexia14/Smurf-Hill/blob/master/README.md#screenshots
