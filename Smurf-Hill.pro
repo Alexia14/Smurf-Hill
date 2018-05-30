@@ -4,14 +4,17 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT += core gui
 QT += multimedia
 QT += multimediawidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = Schtroumph-Hill
+TARGET = Smurf-Hill
 TEMPLATE = app
+TRANSLATIONS += \
+        smurfHill_fr_FR.ts \
+        smurfHill_en_EN.ts
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
@@ -50,7 +53,7 @@ FORMS += \
         view.ui
 
 SUBDIRS += \
-    Schtroumph-Hill.pro
+    Smurf-Hill.pro
 
 RESOURCES += \
     images.qrc

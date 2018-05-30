@@ -1,40 +1,49 @@
 #ifndef RESSOURCES_H
 #define RESSOURCES_H
 
+#include "autre.h"
 #include <QObject>
 
-class Ressource : public QObject {
+class Image;
+class ImageSetting;
 
+class Resource : public QObject {
     Q_OBJECT
-
     public:
-
-        Ressource(QString nom);
-        QString getNom() {return this->nom;}
-        int getNombre() {return this->nombre;}
-        void ajouterRessource(int nb);
-        bool retirerRessource(int nb);
-
+        Resource(QString name);
+        Resource(QString name, int number);
+        QString getName() {return this->name;}
+        int getNumber() {return this->number;}
+        void addResource(int nb) {this->number += nb;}
+        bool removeResource(int nb);
     protected:
-
-        QString nom;
-        int nombre;
-
+        QString name;
+        int number;
 };
 
-class Nourritures : public Ressource {
-
+class Food : public Resource {
     Q_OBJECT
-
     public:
-
-        Nourritures(QString nom, int sante);
-        int getSante() {return this->sante;}
-
+        Food(QString name, int health);
+        int getHealth() {return this->health;}
     private:
+        int health;
+};
 
-        int sante;
-
+class ResourceItem : public Resource {
+    Q_OBJECT
+    public:
+        ResourceItem(QString name, int nombre, ImageSetting *image, int posX, int posY);
+        ImageSetting *getImageItem() {return this->imageItem;}
+        void setImageItem(ImageSetting *image) {this->imageItem = image;}
+        int getPosX() {return this->posX;}
+        int getPosY() {return this->posY;}
+        void setPosX(int posX) {this->posX = posX;}
+        void setPosY(int posY) {this->posY = posY;}
+    private:
+        ImageSetting *imageItem;
+        int posX;
+        int posY;
 };
 
 #endif // RESSOURCES_H

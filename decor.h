@@ -6,428 +6,394 @@
 #include <QtDebug>
 
 class View;
-class ImageDecor;
+class ImageSetting;
 
-class Decor : public QObject
-{
-
+class Setting : public QObject {
     Q_OBJECT
-
     public:
-
-        Decor(QString type, int posX, int posY, View *view);
-
+        Setting(QString type, int posX, int posY, View *view);
         QString getType() {return this->type;}
         int getPosX() {return this->posX;}
         int getPosY() {return this->posY;}
-
-    private:
-
     protected:
         QString type;
         int posX;
         int posY;
         View *view;
-
 };
 
-
-class Village : public Decor
+class Village : public Setting
 {
-
     Q_OBJECT
-
     public:
-
         Village(QString type, int posX, int posY, View *view);
-        ImageDecor *getGrandS() {return this->grandS;}
-        ImageDecor *getMaison1() {return this->maison1;}
-        ImageDecor *getMaison2() {return this->maison2;}
-        ImageDecor *getMaison3() {return this->maison3;}
-        ImageDecor *getMaison4() {return this->maison4;}
-        ImageDecor *getMaison5() {return this->maison5;}
-        ImageDecor *getMaison6() {return this->maison6;}
-        ImageDecor *getMaison7() {return this->maison7;}
-        ImageDecor *getMaison8() {return this->maison8;}
-        ImageDecor *getMaison9() {return this->maison9;}
-        ImageDecor *getMaisonSette() {return this->maisonSette;}
-        ImageDecor *getMaisonSCostaud() {return this->maisonSCostaud;}
-        ImageDecor *getMaisonSPaysan() {return this->maisonSPaysan;}
-        ImageDecor *getMaisonSMusicien() {return this->maisonSMusicien;}
-        ImageDecor *getMoulinS() {return this->moulinS;}
-        ImageDecor *getPuits() {return this->puits;}
-        ImageDecor *getArbre1() {return this->arbre1;}
-        ImageDecor *getArbre2() {return this->arbre2;}
-
+        // Houses
+        ImageSetting *getPapaSmurf() {return this->papaSmurf;}
+        ImageSetting *getBrainy() {return this->brainy;}
+        ImageSetting *getDoctor() {return this->doctor;}
+        ImageSetting *getHouse1() {return this->house1;}
+        ImageSetting *getHouse2() {return this->house2;}
+        ImageSetting *getHouse3() {return this->house3;}
+        ImageSetting *getHouse4() {return this->house4;}
+        ImageSetting *getHouse5() {return this->house5;}
+        ImageSetting *getHouse6() {return this->house6;}
+        ImageSetting *getHouse7() {return this->house7;}
+        ImageSetting *getHouse8() {return this->house8;}
+        ImageSetting *getHouse9() {return this->house9;}
+        ImageSetting *getHouse10() {return this->house10;}
+        ImageSetting *getHouse11() {return this->house11;}
+        ImageSetting *getHouse12() {return this->house12;}
+        ImageSetting *getHouseSmurfette() {return this->houseSmurfette;}
+        ImageSetting *getHouseHefty() {return this->houseHefty;}
+        ImageSetting *getHouseFarmer() {return this->houseFarmer;}
+        ImageSetting *getHouseMusician() {return this->houseMusician;}
+        ImageSetting *getHouseBaker() {return this->houseBaker;}
+        ImageSetting *getMill() {return this->mill;}
+        ImageSetting *getWell() {return this->well;}
+        ImageSetting *getInventory() {return this->inventory;}
+        // Trees
+        ImageSetting *getTree1() {return this->tree1;}
+        ImageSetting *getTree2() {return this->tree2;}
+        ImageSetting *getTree3() {return this->tree3;}
+        ImageSetting *getTree4() {return this->tree4;}
+        ImageSetting *getTree5() {return this->tree5;}
+        ImageSetting *getTree6() {return this->tree6;}
+        ImageSetting *getTree7() {return this->tree7;}
+        ImageSetting *getTree8() {return this->tree8;}
+        ImageSetting *getTree9() {return this->tree9;}
+        ImageSetting *getTree10() {return this->tree10;}
+        ImageSetting *getTree11() {return this->tree11;}
+        ImageSetting *getTree12() {return this->tree12;}
+        ImageSetting *getTree13() {return this->tree13;}
+        ImageSetting *getTree14() {return this->tree14;}
+        ImageSetting *getTree15() {return this->tree15;}
+        // Bushs
+        ImageSetting *getBush1() {return this->bush1;}
+        ImageSetting *getBush2() {return this->bush2;}
+        ImageSetting *getBush3() {return this->bush3;}
+        ImageSetting *getBush4() {return this->bush4;}
+        ImageSetting *getBush5() {return this->bush5;}
+        ImageSetting *getBush6() {return this->bush6;}
+        ImageSetting *getBush7() {return this->bush7;}
+        ImageSetting *getBush8() {return this->bush8;}
+        ImageSetting *getBush9() {return this->bush9;}
     private:
-
-        ImageDecor *maison1, *maison2, *maison3, *maison4, *maison5, *maison6, *maison7, *maison8, *maison9;
-        ImageDecor *grandS, *maisonSette, *maisonSCostaud, *maisonSMusicien, *maisonSPaysan;
-        ImageDecor *moulinS, *puits;
-        ImageDecor *arbre1, *arbre2;
-
-    public slots:
-        void pixmapClicked() {qDebug() << "item clicked!";}
-
+        ImageSetting *house1, *house2, *house3, *house4, *house5, *house6, *house7, *house8, *house9, *house10, *house11, *house12;
+        ImageSetting *papaSmurf, *brainy, *doctor, *houseSmurfette, *houseHefty, *houseMusician, *houseFarmer, *houseBaker;
+        ImageSetting *mill, *well, *inventory;
+        ImageSetting *tree1, *tree2, *tree3, *tree4, *tree5, *tree6, *tree7, *tree8, *tree9, *tree10, *tree11, *tree12, *tree13, *tree14, *tree15;
+        ImageSetting *bush1, *bush2, *bush3, *bush4, *bush5, *bush6, *bush7, *bush8, *bush9;
 };
 
-class Foret : public Decor
-{
-
+class Forest : public Setting {
     Q_OBJECT
-
     public:
-
-        Foret(QString type, int posX, int posY, View *view);
-
-        ImageDecor *getNoisette() {return this->noisette;}
-        ImageDecor *getBaie() {return this->baie;}
-        ImageDecor *getBle() {return this->ble;}
-
-    private:
-
-    protected slots:
-        void onResourceWheatClicked();
-        void onResourceAcornClicked();
-        void onResourceBayClicked();
-
+        Forest(QString type, int posX, int posY, View *view): Setting(type, posX, posY, view) {}
+        int getPosXAcorn() {return this->posXAcorn;}
+        int getPosYAcorn() {return this->posYAcorn;}
+        int getPosXBerries() {return this->posXBerries;}
+        int getPosYBerries() {return this->posYBerries;}
+        int getPosXWheat() {return this->posXWheat;}
+        int getPosYWheat() {return this->posYWheat;}
+        int getPosXSarsaparilla() {return this->posXSarsaparilla;}
+        int getPosYSarsaparilla() {return this->posYSarsaparilla;}
     protected:
-
-        ImageDecor *noisette, *baie, *ble;
-        int nbNoisette, nbBaie, nbBle;
+        ImageSetting *acorn, *berries, *wheat;
+        int nbAcorn, nbBerry, nbWheat;
+        int posXAcorn, posYAcorn;
+        int posXBerries, posYBerries;
+        int posXWheat, posYWheat;
+        int posXSarsaparilla, posYSarsaparilla;
 };
 
-class Foret1 : public Foret
-{
-
+class Forest1 : public Forest {
     Q_OBJECT
-
     public:
-
-        Foret1(QString type, int posX, int posY, View *view);
-        ImageDecor *getArbre1() {return this->arbre1;}
-        ImageDecor *getArbre2() {return this->arbre2;}
-        ImageDecor *getArbre3() {return this->arbre3;}
-        ImageDecor *getArbre4() {return this->arbre4;}
-        ImageDecor *getArbre5() {return this->arbre5;}
-        ImageDecor *getArbre6() {return this->arbre6;}
-        ImageDecor *getArbre7() {return this->arbre7;}
-        ImageDecor *getArbre8() {return this->arbre8;}
-        ImageDecor *getArbre9() {return this->arbre9;}
-        ImageDecor *getArbre10() {return this->arbre10;}
-        ImageDecor *getArbre11() {return this->arbre11;}
-        ImageDecor *getArbre12() {return this->arbre12;}
-        ImageDecor *getArbre13() {return this->arbre13;}
-        ImageDecor *getArbre14() {return this->arbre14;}
-        ImageDecor *getArbre15() {return this->arbre15;}
-        ImageDecor *getArbre16() {return this->arbre16;}
-        ImageDecor *getArbre17() {return this->arbre17;}
-
-        ImageDecor *getBuisson1() {return this->buisson1;}
-        ImageDecor *getBuisson2() {return this->buisson2;}
-        ImageDecor *getBuissonBaies1() {return this->buissonbaies1;}
-        ImageDecor *getBuissonBaies2() {return this->buissonbaies2;}
-
+        Forest1(QString type, int posX, int posY, View *view);
+        ImageSetting *getTree1() {return this->tree1;}
+        ImageSetting *getTree2() {return this->tree2;}
+        ImageSetting *getTree3() {return this->tree3;}
+        ImageSetting *getTree4() {return this->tree4;}
+        ImageSetting *getTree5() {return this->tree5;}
+        ImageSetting *getTree6() {return this->tree6;}
+        ImageSetting *getTree7() {return this->tree7;}
+        ImageSetting *getTree8() {return this->tree8;}
+        ImageSetting *getTree9() {return this->tree9;}
+        ImageSetting *getTree10() {return this->tree10;}
+        ImageSetting *getTree11() {return this->tree11;}
+        ImageSetting *getTree12() {return this->tree12;}
+        ImageSetting *getTree13() {return this->tree13;}
+        ImageSetting *getTree14() {return this->tree14;}
+        ImageSetting *getTree15() {return this->tree15;}
+        ImageSetting *getTree16() {return this->tree16;}
+        ImageSetting *getTree17() {return this->tree17;}
+        ImageSetting *getBush1() {return this->bush1;}
+        ImageSetting *getBush2() {return this->bush2;}
+        ImageSetting *getBushBerries1() {return this->bushBerries1;}
+        ImageSetting *getBushBerries2() {return this->bushBerries2;}
     private:
-        ImageDecor *arbre1, *arbre2, *arbre3, *arbre4, *arbre5, *arbre6, *arbre7, *arbre8;
-        ImageDecor *arbre9, *arbre10, *arbre11, *arbre12, *arbre13, *arbre14, *arbre15, *arbre16, *arbre17;
-        ImageDecor *buisson1, *buisson2, *buissonbaies1, *buissonbaies2;
+        ImageSetting *tree1, *tree2, *tree3, *tree4, *tree5, *tree6, *tree7, *tree8;
+        ImageSetting *tree9, *tree10, *tree11, *tree12, *tree13, *tree14, *tree15, *tree16, *tree17;
+        ImageSetting *bush1, *bush2, *bushBerries1, *bushBerries2;
 };
 
-class Foret2 : public Foret
-{
-
+class Forest2 : public Forest {
     Q_OBJECT
-
     public:
-
-        Foret2(QString type, int posX, int posY, View *view);
-        Image *getArbre01() {return this->arbre01;}
-        Image *getArbre02() {return this->arbre02;}
-        Image *getArbre03() {return this->arbre03;}
-        Image *getArbre04() {return this->arbre04;}
-        Image *getArbre05() {return this->arbre05;}
-        Image *getArbre06() {return this->arbre06;}
-        Image *getArbre07() {return this->arbre07;}
-        Image *getArbre1() {return this->arbre1;}
-        Image *getArbre2() {return this->arbre2;}
-        Image *getArbre3() {return this->arbre3;}
-        Image *getArbre4() {return this->arbre4;}
-        Image *getArbre5() {return this->arbre5;}
-        Image *getArbre6() {return this->arbre6;}
-        Image *getArbre7() {return this->arbre7;}
-        Image *getArbre8() {return this->arbre8;}
-        Image *getArbre9() {return this->arbre9;}
-        Image *getArbre10() {return this->arbre10;}
-        Image *getArbre11() {return this->arbre11;}
-        Image *getArbre12() {return this->arbre12;}
-        Image *getArbre13() {return this->arbre13;}
-        Image *getArbre14() {return this->arbre14;}
-
-        Image *getBuissonBaies1() {return this->buissonbaies1;}
-        Image *getBuisson1() {return this->buisson1;}
-        Image *getBuisson2() {return this->buisson2;}
-        Image *getBuisson3() {return this->buisson3;}
-
+        Forest2(QString type, int posX, int posY, View *view);
+        ImageSetting *getTree01() {return this->tree01;}
+        ImageSetting *getTree02() {return this->tree02;}
+        ImageSetting *getTree03() {return this->tree03;}
+        ImageSetting *getTree04() {return this->tree04;}
+        ImageSetting *getTree05() {return this->tree05;}
+        ImageSetting *getTree06() {return this->tree06;}
+        ImageSetting *getTree07() {return this->tree07;}
+        ImageSetting *getTree1() {return this->tree1;}
+        ImageSetting *getTree2() {return this->tree2;}
+        ImageSetting *getTree3() {return this->tree3;}
+        ImageSetting *getTree4() {return this->tree4;}
+        ImageSetting *getTree5() {return this->tree5;}
+        ImageSetting *getTree6() {return this->tree6;}
+        ImageSetting *getTree7() {return this->tree7;}
+        ImageSetting *getTree8() {return this->tree8;}
+        ImageSetting *getTree9() {return this->tree9;}
+        ImageSetting *getTree10() {return this->tree10;}
+        ImageSetting *getTree11() {return this->tree11;}
+        ImageSetting *getTree12() {return this->tree12;}
+        ImageSetting *getTree13() {return this->tree13;}
+        ImageSetting *getTree14() {return this->tree14;}
+        ImageSetting *getBushBerries1() {return this->bushBerries1;}
+        ImageSetting *getBush1() {return this->bush1;}
+        ImageSetting *getBush2() {return this->bush2;}
+        ImageSetting *getBush3() {return this->bush3;}
     private:
-        Image *arbre01, *arbre02, *arbre03, *arbre04, *arbre05, *arbre06, *arbre07;
-        Image *arbre1, *arbre2, *arbre3, *arbre4, *arbre5, *arbre6, *arbre7, *arbre8, *arbre9, *arbre10;
-        Image *arbre11, *arbre12, *arbre13, *arbre14;
-        Image *buissonbaies1, *buisson1, *buisson2, *buisson3;
+        ImageSetting *tree01, *tree02, *tree03, *tree04, *tree05, *tree06, *tree07;
+        ImageSetting *tree1, *tree2, *tree3, *tree4, *tree5, *tree6, *tree7, *tree8, *tree9, *tree10;
+        ImageSetting *tree11, *tree12, *tree13, *tree14;
+        ImageSetting *bushBerries1, *bush1, *bush2, *bush3;
 };
 
-class Foret3 : public Foret
-{
-
+class Forest3 : public Forest {
     Q_OBJECT
-
     public:
-
-        Foret3(QString type, int posX, int posY, View *view);
-        Image *getArbre01() {return this->arbre01;}
-        Image *getArbre02() {return this->arbre02;}
-        Image *getArbre1() {return this->arbre1;}
-        Image *getArbre2() {return this->arbre2;}
-        Image *getArbre3() {return this->arbre3;}
-        Image *getArbre4() {return this->arbre4;}
-        Image *getArbre5() {return this->arbre5;}
-        Image *getArbre6() {return this->arbre6;}
-        Image *getArbre7() {return this->arbre7;}
-        Image *getArbre8() {return this->arbre8;}
-        Image *getArbre9() {return this->arbre9;}
-        Image *getArbre10() {return this->arbre10;}
-        Image *getArbre11() {return this->arbre11;}
-        Image *getArbre12() {return this->arbre12;}
-        Image *getArbre13() {return this->arbre13;}
-        Image *getArbre14() {return this->arbre14;}
-        Image *getArbre15() {return this->arbre15;}
-        Image *getArbre16() {return this->arbre16;}
-        Image *getArbre17() {return this->arbre17;}
-
-        Image *getBuissonBaies1() {return this->buissonbaies1;}
-        Image *getBuissonBaies2() {return this->buissonbaies2;}
-        Image *getBuissonBaies3() {return this->buissonbaies3;}
-        Image *getBuisson1() {return this->buisson1;}
-        Image *getBuisson2() {return this->buisson2;}
-        Image *getSouche1() {return this->souche1;}
-
+        Forest3(QString type, int posX, int posY, View *view);
+        ImageSetting *getTree01() {return this->tree01;}
+        ImageSetting *getTree02() {return this->tree02;}
+        ImageSetting *getTree1() {return this->tree1;}
+        ImageSetting *getTree2() {return this->tree2;}
+        ImageSetting *getTree3() {return this->tree3;}
+        ImageSetting *getTree4() {return this->tree4;}
+        ImageSetting *getTree5() {return this->tree5;}
+        ImageSetting *getTree6() {return this->tree6;}
+        ImageSetting *getTree7() {return this->tree7;}
+        ImageSetting *getTree8() {return this->tree8;}
+        ImageSetting *getTree9() {return this->tree9;}
+        ImageSetting *getTree10() {return this->tree10;}
+        ImageSetting *getTree11() {return this->tree11;}
+        ImageSetting *getTree12() {return this->tree12;}
+        ImageSetting *getTree13() {return this->tree13;}
+        ImageSetting *getTree14() {return this->tree14;}
+        ImageSetting *getTree15() {return this->tree15;}
+        ImageSetting *getTree16() {return this->tree16;}
+        ImageSetting *getTree17() {return this->tree17;}
+        ImageSetting *getBushBerries1() {return this->bushBerries1;}
+        ImageSetting *getBushBerries2() {return this->bushBerries2;}
+        ImageSetting *getBushBerries3() {return this->bushBerries3;}
+        ImageSetting *getBush1() {return this->bush1;}
+        ImageSetting *getBush2() {return this->bush2;}
+        ImageSetting *getSouche1() {return this->souche1;}
     private:
-        Image *arbre01, *arbre02;
-        Image *arbre1, *arbre2, *arbre3, *arbre4, *arbre5, *arbre6, *arbre7, *arbre8, *arbre9;
-        Image *arbre10, *arbre11, *arbre12, *arbre13, *arbre14, *arbre15, *arbre16, *arbre17;
-        Image *buissonbaies1, *buissonbaies2, *buissonbaies3, *buisson1, *buisson2, *souche1;
+        ImageSetting *tree01, *tree02;
+        ImageSetting *tree1, *tree2, *tree3, *tree4, *tree5, *tree6, *tree7, *tree8, *tree9;
+        ImageSetting *tree10, *tree11, *tree12, *tree13, *tree14, *tree15, *tree16, *tree17;
+        ImageSetting *bushBerries1, *bushBerries2, *bushBerries3, *bush1, *bush2, *souche1;
 };
 
-class Foret4 : public Foret
-{
-
+class Forest4 : public Forest {
     Q_OBJECT
-
     public:
-
-        Foret4(QString type, int posX, int posY, View *view);
-        Image *getArbre1() {return this->arbre1;}
-        Image *getArbre2() {return this->arbre2;}
-        Image *getArbre3() {return this->arbre3;}
-        Image *getArbre4() {return this->arbre4;}
-        Image *getArbre5() {return this->arbre5;}
-        Image *getArbre6() {return this->arbre6;}
-        Image *getArbre7() {return this->arbre7;}
-        Image *getArbre8() {return this->arbre8;}
-        Image *getArbre9() {return this->arbre9;}
-        Image *getArbre10() {return this->arbre10;}
-        Image *getArbre11() {return this->arbre11;}
-        Image *getArbre12() {return this->arbre12;}
-        Image *getArbre13() {return this->arbre13;}
-        Image *getArbre14() {return this->arbre14;}
-        Image *getArbre15() {return this->arbre15;}
-        Image *getArbre16() {return this->arbre16;}
-        Image *getArbre17() {return this->arbre17;}
-        Image *getArbre18() {return this->arbre18;}
-        Image *getArbre19() {return this->arbre19;}
-        Image *getArbre20() {return this->arbre20;}
-        Image *getArbre21() {return this->arbre21;}
-        Image *getArbre22() {return this->arbre22;}
-        Image *getArbre23() {return this->arbre23;}
-        Image *getArbre24() {return this->arbre24;}
-        Image *getArbre25() {return this->arbre25;}
-
-        Image *getBuissonBaies1() {return this->buissonbaies1;}
-        Image *getBuisson1() {return this->buisson1;}
-        Image *getBuisson2() {return this->buisson2;}
-        Image *getBuisson3() {return this->buisson3;}
-        Image *getBuisson4() {return this->buisson4;}
-        Image *getBuisson5() {return this->buisson5;}
-        Image *getBuisson6() {return this->buisson6;}
-        Image *getBuisson7() {return this->buisson7;}
-        Image *getBuisson8() {return this->buisson8;}
-        Image *getBuisson9() {return this->buisson9;}
-
+        Forest4(QString type, int posX, int posY, View *view);
+        ImageSetting *getTree1() {return this->tree1;}
+        ImageSetting *getTree2() {return this->tree2;}
+        ImageSetting *getTree3() {return this->tree3;}
+        ImageSetting *getTree4() {return this->tree4;}
+        ImageSetting *getTree5() {return this->tree5;}
+        ImageSetting *getTree6() {return this->tree6;}
+        ImageSetting *getTree7() {return this->tree7;}
+        ImageSetting *getTree8() {return this->tree8;}
+        ImageSetting *getTree9() {return this->tree9;}
+        ImageSetting *getTree10() {return this->tree10;}
+        ImageSetting *getTree11() {return this->tree11;}
+        ImageSetting *getTree12() {return this->tree12;}
+        ImageSetting *getTree13() {return this->tree13;}
+        ImageSetting *getTree14() {return this->tree14;}
+        ImageSetting *getTree15() {return this->tree15;}
+        ImageSetting *getTree16() {return this->tree16;}
+        ImageSetting *getTree17() {return this->tree17;}
+        ImageSetting *getTree18() {return this->tree18;}
+        ImageSetting *getTree19() {return this->tree19;}
+        ImageSetting *getTree20() {return this->tree20;}
+        ImageSetting *getTree21() {return this->tree21;}
+        ImageSetting *getTree22() {return this->tree22;}
+        ImageSetting *getTree23() {return this->tree23;}
+        ImageSetting *getTree24() {return this->tree24;}
+        ImageSetting *getTree25() {return this->tree25;}
+        ImageSetting *getBushBerries1() {return this->bushBerries1;}
+        ImageSetting *getBush1() {return this->bush1;}
+        ImageSetting *getBush2() {return this->bush2;}
+        ImageSetting *getBush3() {return this->bush3;}
+        ImageSetting *getBush4() {return this->bush4;}
+        ImageSetting *getBush5() {return this->bush5;}
+        ImageSetting *getBush6() {return this->bush6;}
+        ImageSetting *getBush7() {return this->bush7;}
+        ImageSetting *getBush8() {return this->bush8;}
+        ImageSetting *getBush9() {return this->bush9;}
     private:
-        Image *arbre1, *arbre2, *arbre3, *arbre4, *arbre5, *arbre6, *arbre7, *arbre8, *arbre9, *arbre10;
-        Image *arbre11, *arbre12, *arbre13, *arbre14, *arbre15, *arbre16, *arbre17, *arbre18, *arbre19, *arbre20;
-        Image *arbre21, *arbre22, *arbre23, *arbre24, *arbre25;
-        Image *buissonbaies1, *buisson1, *buisson2, *buisson3, *buisson4, *buisson5, *buisson6, *buisson7, *buisson8, *buisson9;
+        ImageSetting *tree1, *tree2, *tree3, *tree4, *tree5, *tree6, *tree7, *tree8, *tree9, *tree10;
+        ImageSetting *tree11, *tree12, *tree13, *tree14, *tree15, *tree16, *tree17, *tree18, *tree19, *tree20;
+        ImageSetting *tree21, *tree22, *tree23, *tree24, *tree25;
+        ImageSetting *bushBerries1, *bush1, *bush2, *bush3, *bush4, *bush5, *bush6, *bush7, *bush8, *bush9;
 };
 
-class Foret5 : public Foret
-{
-
+class Forest5 : public Forest {
     Q_OBJECT
-
     public:
-
-        Foret5(QString type, int posX, int posY, View *view);
-        Image *getArbre1() {return this->arbre1;}
-        Image *getArbre2() {return this->arbre2;}
-        Image *getArbre3() {return this->arbre3;}
-        Image *getArbre4() {return this->arbre4;}
-        Image *getArbre5() {return this->arbre5;}
-        Image *getArbre6() {return this->arbre6;}
-        Image *getArbre7() {return this->arbre7;}
-        Image *getArbre8() {return this->arbre8;}
-        Image *getArbre9() {return this->arbre9;}
-        Image *getArbre10() {return this->arbre10;}
-        Image *getArbre11() {return this->arbre11;}
-        Image *getArbre12() {return this->arbre12;}
-        Image *getArbre13() {return this->arbre13;}
-        Image *getArbre14() {return this->arbre14;}
-        Image *getArbre15() {return this->arbre15;}
-
-        Image *getArbre16() {return this->arbre16;}
-        Image *getArbre17() {return this->arbre17;}
-        Image *getArbre18() {return this->arbre18;}
-        Image *getArbre19() {return this->arbre19;}
-        Image *getArbre20() {return this->arbre20;}
-        Image *getArbre21() {return this->arbre21;}
-        Image *getArbre22() {return this->arbre22;}
-        Image *getArbre23() {return this->arbre23;}
-        Image *getArbre24() {return this->arbre24;}
-        Image *getArbre25() {return this->arbre25;}
-        Image *getArbre26() {return this->arbre26;}
-        Image *getArbre27() {return this->arbre27;}
-        Image *getArbre28() {return this->arbre28;}
-        Image *getArbre29() {return this->arbre29;}
-        Image *getArbre30() {return this->arbre30;}
-
-        Image *getBuissonBaies1() {return this->buissonbaies1;}
-        Image *getBuissonBaies2() {return this->buissonbaies2;}
-
+        Forest5(QString type, int posX, int posY, View *view);
+        ImageSetting *getTree1() {return this->tree1;}
+        ImageSetting *getTree2() {return this->tree2;}
+        ImageSetting *getTree3() {return this->tree3;}
+        ImageSetting *getTree4() {return this->tree4;}
+        ImageSetting *getTree5() {return this->tree5;}
+        ImageSetting *getTree6() {return this->tree6;}
+        ImageSetting *getTree7() {return this->tree7;}
+        ImageSetting *getTree8() {return this->tree8;}
+        ImageSetting *getTree9() {return this->tree9;}
+        ImageSetting *getTree10() {return this->tree10;}
+        ImageSetting *getTree11() {return this->tree11;}
+        ImageSetting *getTree12() {return this->tree12;}
+        ImageSetting *getTree13() {return this->tree13;}
+        ImageSetting *getTree14() {return this->tree14;}
+        ImageSetting *getTree15() {return this->tree15;}
+        ImageSetting *getTree16() {return this->tree16;}
+        ImageSetting *getTree17() {return this->tree17;}
+        ImageSetting *getTree18() {return this->tree18;}
+        ImageSetting *getTree19() {return this->tree19;}
+        ImageSetting *getTree20() {return this->tree20;}
+        ImageSetting *getTree21() {return this->tree21;}
+        ImageSetting *getTree22() {return this->tree22;}
+        ImageSetting *getTree23() {return this->tree23;}
+        ImageSetting *getTree24() {return this->tree24;}
+        ImageSetting *getTree25() {return this->tree25;}
+        ImageSetting *getTree26() {return this->tree26;}
+        ImageSetting *getTree27() {return this->tree27;}
+        ImageSetting *getTree28() {return this->tree28;}
+        ImageSetting *getTree29() {return this->tree29;}
+        ImageSetting *getTree30() {return this->tree30;}
+        ImageSetting *getBushBerries1() {return this->bushBerries1;}
+        ImageSetting *getBushBerries2() {return this->bushBerries2;}
     private:
-        Image *arbre1, *arbre2, *arbre3, *arbre4, *arbre5, *arbre6, *arbre7, *arbre8, *arbre9, *arbre10;
-        Image *arbre11, *arbre12, *arbre13, *arbre14, *arbre15, *arbre16, *arbre17, *arbre18, *arbre19, *arbre20;
-        Image *arbre21, *arbre22, *arbre23, *arbre24, *arbre25, *arbre26, *arbre27, *arbre28, *arbre29, *arbre30;
-        Image *buissonbaies1, *buissonbaies2;
+        ImageSetting *tree1, *tree2, *tree3, *tree4, *tree5, *tree6, *tree7, *tree8, *tree9, *tree10;
+        ImageSetting *tree11, *tree12, *tree13, *tree14, *tree15, *tree16, *tree17, *tree18, *tree19, *tree20;
+        ImageSetting *tree21, *tree22, *tree23, *tree24, *tree25, *tree26, *tree27, *tree28, *tree29, *tree30;
+        ImageSetting *bushBerries1, *bushBerries2;
 };
 
-class Foret6 : public Foret
-{
-
+class Forest6 : public Forest {
     Q_OBJECT
-
     public:
-
-        Foret6(QString type, int posX, int posY, View *view);
-        Image *getArbre1() {return this->arbre1;}
-        Image *getArbre2() {return this->arbre2;}
-        Image *getArbre3() {return this->arbre3;}
-        Image *getArbre4() {return this->arbre4;}
-        Image *getArbre5() {return this->arbre5;}
-        Image *getArbre6() {return this->arbre6;}
-        Image *getArbre7() {return this->arbre7;}
-        Image *getArbre8() {return this->arbre8;}
-        Image *getArbre9() {return this->arbre9;}
-        Image *getArbre10() {return this->arbre10;}
-        Image *getArbre11() {return this->arbre11;}
-        Image *getArbre12() {return this->arbre12;}
-        Image *getArbre13() {return this->arbre13;}
-        Image *getArbre14() {return this->arbre14;}
-        Image *getArbre15() {return this->arbre15;}
-        Image *getArbre16() {return this->arbre16;}
-        Image *getArbre17() {return this->arbre17;}
-        Image *getArbre18() {return this->arbre18;}
-        Image *getArbre19() {return this->arbre19;}
-        Image *getArbre20() {return this->arbre20;}
-        Image *getArbre21() {return this->arbre21;}
-        Image *getArbre22() {return this->arbre22;}
-        Image *getArbre23() {return this->arbre23;}
-        Image *getArbre24() {return this->arbre24;}
-        Image *getArbre25() {return this->arbre25;}
-        Image *getArbre26() {return this->arbre26;}
-        Image *getArbre27() {return this->arbre27;}
-        Image *getArbre28() {return this->arbre28;}
-        Image *getArbre29() {return this->arbre29;}
-        Image *getArbre30() {return this->arbre30;}
-
-        Image *getBuissonBaies1() {return this->buissonbaies1;}
-        Image *getBuisson1() {return this->buisson1;}
-
+        Forest6(QString type, int posX, int posY, View *view);
+        ImageSetting *getTree1() {return this->tree1;}
+        ImageSetting *getTree2() {return this->tree2;}
+        ImageSetting *getTree3() {return this->tree3;}
+        ImageSetting *getTree4() {return this->tree4;}
+        ImageSetting *getTree5() {return this->tree5;}
+        ImageSetting *getTree6() {return this->tree6;}
+        ImageSetting *getTree7() {return this->tree7;}
+        ImageSetting *getTree8() {return this->tree8;}
+        ImageSetting *getTree9() {return this->tree9;}
+        ImageSetting *getTree10() {return this->tree10;}
+        ImageSetting *getTree11() {return this->tree11;}
+        ImageSetting *getTree12() {return this->tree12;}
+        ImageSetting *getTree13() {return this->tree13;}
+        ImageSetting *getTree14() {return this->tree14;}
+        ImageSetting *getTree15() {return this->tree15;}
+        ImageSetting *getTree16() {return this->tree16;}
+        ImageSetting *getTree17() {return this->tree17;}
+        ImageSetting *getTree18() {return this->tree18;}
+        ImageSetting *getTree19() {return this->tree19;}
+        ImageSetting *getTree20() {return this->tree20;}
+        ImageSetting *getTree21() {return this->tree21;}
+        ImageSetting *getTree22() {return this->tree22;}
+        ImageSetting *getTree23() {return this->tree23;}
+        ImageSetting *getTree24() {return this->tree24;}
+        ImageSetting *getTree25() {return this->tree25;}
+        ImageSetting *getTree26() {return this->tree26;}
+        ImageSetting *getTree27() {return this->tree27;}
+        ImageSetting *getTree28() {return this->tree28;}
+        ImageSetting *getTree29() {return this->tree29;}
+        ImageSetting *getTree30() {return this->tree30;}
+        ImageSetting *getBushBerries1() {return this->bushBerries1;}
+        ImageSetting *getBush1() {return this->bush1;}
     private:
-        Image *arbre1, *arbre2, *arbre3, *arbre4, *arbre5, *arbre6, *arbre7, *arbre8, *arbre9, *arbre10;
-        Image *arbre11, *arbre12, *arbre13, *arbre14, *arbre15, *arbre16, *arbre17, *arbre18, *arbre19, *arbre20;
-        Image *arbre21, *arbre22, *arbre23, *arbre24, *arbre25, *arbre26, *arbre27, *arbre28, *arbre29, *arbre30;
-        Image *buissonbaies1, *buisson1;
+        ImageSetting *tree1, *tree2, *tree3, *tree4, *tree5, *tree6, *tree7, *tree8, *tree9, *tree10;
+        ImageSetting *tree11, *tree12, *tree13, *tree14, *tree15, *tree16, *tree17, *tree18, *tree19, *tree20;
+        ImageSetting *tree21, *tree22, *tree23, *tree24, *tree25, *tree26, *tree27, *tree28, *tree29, *tree30;
+        ImageSetting *bushBerries1, *bush1;
 };
 
-class Foret7 : public Foret
-{
-
+class Forest7 : public Forest {
     Q_OBJECT
-
     public:
-
-        Foret7(QString type, int posX, int posY, View *view);
-        Image *getArbre1() {return this->arbre1;}
-        Image *getArbre2() {return this->arbre2;}
-        Image *getArbre3() {return this->arbre3;}
-        Image *getArbre4() {return this->arbre4;}
-        Image *getArbre5() {return this->arbre5;}
-        Image *getArbre6() {return this->arbre6;}
-        Image *getArbre7() {return this->arbre7;}
-        Image *getArbre8() {return this->arbre8;}
-        Image *getArbre9() {return this->arbre9;}
-        Image *getArbre10() {return this->arbre10;}
-        Image *getArbre11() {return this->arbre11;}
-        Image *getArbre12() {return this->arbre12;}
-        Image *getArbre13() {return this->arbre13;}
-        Image *getArbre14() {return this->arbre14;}
-        Image *getArbre15() {return this->arbre15;}
-        Image *getArbre16() {return this->arbre16;}
-        Image *getArbre17() {return this->arbre17;}
-        Image *getArbre18() {return this->arbre18;}
-        Image *getArbre19() {return this->arbre19;}
-        Image *getArbre20() {return this->arbre20;}
-        Image *getArbre21() {return this->arbre21;}
-        Image *getArbre22() {return this->arbre22;}
-        Image *getArbre23() {return this->arbre23;}
-        Image *getArbre24() {return this->arbre24;}
-        Image *getArbre25() {return this->arbre25;}
-        Image *getArbre26() {return this->arbre26;}
-        Image *getArbre27() {return this->arbre27;}
-        Image *getArbre28() {return this->arbre28;}
-        Image *getArbre29() {return this->arbre29;}
-        Image *getArbre30() {return this->arbre30;}
-
-        Image *getBuissonbaies1() {return this->buissonbaies1;}
-        Image *getBuissonbaies2() {return this->buissonbaies2;}
-        Image *getBuissonbaies3() {return this->buissonbaies3;}
-        Image *getBuisson1() {return this->buisson1;}
-        Image *getBuisson2() {return this->buisson2;}
-        Image *getBuisson3() {return this->buisson3;}
-        Image *getBuisson4() {return this->buisson4;}
-        Image *getBuisson5() {return this->buisson5;}
-        Image *getBuisson6() {return this->buisson6;}
-        Image *getBuisson7() {return this->buisson7;}
-        Image *getSouche1() {return this->souche1;}
-        Image *getSouche2() {return this->souche2;}
-        Image *getSouche3() {return this->souche3;}
-
+        Forest7(QString type, int posX, int posY, View *view);
+        ImageSetting *getTree1() {return this->tree1;}
+        ImageSetting *getTree2() {return this->tree2;}
+        ImageSetting *getTree3() {return this->tree3;}
+        ImageSetting *getTree4() {return this->tree4;}
+        ImageSetting *getTree5() {return this->tree5;}
+        ImageSetting *getTree6() {return this->tree6;}
+        ImageSetting *getTree7() {return this->tree7;}
+        ImageSetting *getTree8() {return this->tree8;}
+        ImageSetting *getTree9() {return this->tree9;}
+        ImageSetting *getTree10() {return this->tree10;}
+        ImageSetting *getTree11() {return this->tree11;}
+        ImageSetting *getTree12() {return this->tree12;}
+        ImageSetting *getTree13() {return this->tree13;}
+        ImageSetting *getTree14() {return this->tree14;}
+        ImageSetting *getTree15() {return this->tree15;}
+        ImageSetting *getTree16() {return this->tree16;}
+        ImageSetting *getTree17() {return this->tree17;}
+        ImageSetting *getTree18() {return this->tree18;}
+        ImageSetting *getTree19() {return this->tree19;}
+        ImageSetting *getTree20() {return this->tree20;}
+        ImageSetting *getTree21() {return this->tree21;}
+        ImageSetting *getTree22() {return this->tree22;}
+        ImageSetting *getTree23() {return this->tree23;}
+        ImageSetting *getTree24() {return this->tree24;}
+        ImageSetting *getTree25() {return this->tree25;}
+        ImageSetting *getTree26() {return this->tree26;}
+        ImageSetting *getTree27() {return this->tree27;}
+        ImageSetting *getTree28() {return this->tree28;}
+        ImageSetting *getTree29() {return this->tree29;}
+        ImageSetting *getTree30() {return this->tree30;}
+        ImageSetting *getBushBerries1() {return this->bushBerries1;}
+        ImageSetting *getBushBerries2() {return this->bushBerries2;}
+        ImageSetting *getBushBerries3() {return this->bushBerries3;}
+        ImageSetting *getBush1() {return this->bush1;}
+        ImageSetting *getBush2() {return this->bush2;}
+        ImageSetting *getBush3() {return this->bush3;}
+        ImageSetting *getBush4() {return this->bush4;}
+        ImageSetting *getBush5() {return this->bush5;}
+        ImageSetting *getBush6() {return this->bush6;}
+        ImageSetting *getBush7() {return this->bush7;}
+        ImageSetting *getSouche1() {return this->souche1;}
+        ImageSetting *getSouche2() {return this->souche2;}
+        ImageSetting *getSouche3() {return this->souche3;}
     private:
-        Image *arbre1, *arbre2, *arbre3, *arbre4, *arbre5, *arbre6, *arbre7, *arbre8, *arbre9, *arbre10;
-        Image *arbre11, *arbre12, *arbre13, *arbre14, *arbre15, *arbre16, *arbre17, *arbre18, *arbre19, *arbre20;
-        Image *arbre21, *arbre22, *arbre23, *arbre24, *arbre25, *arbre26, *arbre27, *arbre28, *arbre29, *arbre30;
-        Image *buissonbaies1, *buissonbaies2, *buissonbaies3, *buisson1, *buisson2, *buisson3, *buisson4, *buisson5, *buisson6, *buisson7;
-        Image *souche1, *souche2, *souche3;
+        ImageSetting *tree1, *tree2, *tree3, *tree4, *tree5, *tree6, *tree7, *tree8, *tree9, *tree10;
+        ImageSetting *tree11, *tree12, *tree13, *tree14, *tree15, *tree16, *tree17, *tree18, *tree19, *tree20;
+        ImageSetting *tree21, *tree22, *tree23, *tree24, *tree25, *tree26, *tree27, *tree28, *tree29, *tree30;
+        ImageSetting *bushBerries1, *bushBerries2, *bushBerries3, *bush1, *bush2, *bush3, *bush4, *bush5, *bush6, *bush7;
+        ImageSetting *souche1, *souche2, *souche3;
 };
 
-#endif // DECOR_H
+#endif // Setting_H
