@@ -6,9 +6,9 @@ Feel free to contribute or discuss the game.
 
 ## Contents
 
-  * [Installation]: https://github.com/Alexia14/Smurf-Hill/blob/master/README.md#install--play
-  * [Requirements]: https://github.com/Alexia14/Smurf-Hill/blob/master/README.md#requirements
-  * [Gameplay]: https://github.com/Alexia14/Smurf-Hill/blob/master/README.md#gameplay
+  * [Installation][Installation]
+  * [Requirements][Requirements]
+  * [Gameplay][Gameplay]
     * [Village][Village]
     * [Forests][Forests]
     * [Persos][Persos]
