@@ -1,44 +1,14 @@
-<<<<<<< HEAD
-# Welcome in a game Qt in MVC
-
-<p align="center">
-  <img src="http://victor-fauquembergue.fr/imagesGit/smurf1">
-</p>
-=======
 # Smurf-Hill
 
 This game has been developed for a school project. This is a one player game based on a survival game. You have a Smurf community who has to survive against the enemies and find resources to feed and treat each Smurf.
 
 Feel free to contribute or discuss the game.
->>>>>>> 693708b04b48ede7df1326b317363a7e9920cdd6
 
 ## Contents
-  * [Install & Play][Installation]
-  * [Gameplay][Gameplay]
-<<<<<<< HEAD
-    * [Screenshots][Screenshots]
-  * [Team][Team]
 
-## Install & Play
-
-```
-git clone https://github.com/UKyz/SmurfHill.git
-cd SmurfHill
-```
-
-## Gameplay
- 
-### Screenshots
-
-## Team :
-  * Couton Alexia (Save, Decor, Traduction)
-  * Fauquembergue Victor (MVC, Perso, GameLoop, Resource)
-
-[Installation]: https://github.com/UKyz/SmurfHill/blob/master/README.md#install--play
-[Gameplay]: https://github.com/UKyz/SmurfHill/blob/master/README.md#gameplay
-[Screenshots]: https://github.com/UKyz/SmurHill/blob/master/README.md#screenshots
-[Team]: https://github.com/UKyz/SmurfHill/blob/master/README.md#team-
-=======
+  * [Installation]: https://github.com/Alexia14/Smurf-Hill/blob/master/README.md#install--play
+  * [Requirements]: https://github.com/Alexia14/Smurf-Hill/blob/master/README.md#requirements
+  * [Gameplay]: https://github.com/Alexia14/Smurf-Hill/blob/master/README.md#gameplay
     * [Village][Village]
     * [Forests][Forests]
     * [Persos][Persos]
@@ -125,4 +95,3 @@ Farmer Smurf, Baker Smurf, Hefty Smurf and Doctor Smurf are called the NonPlayer
 [NonPlayerPerso]: https://github.com/Alexia14/Smurf-Hill/blob/master/README.md#nonplayerperso
 [Screenshots]: https://github.com/Alexia14/Smurf-Hill/blob/master/README.md#screenshots
 [Team]: https://github.com/Alexia14/Smurf-Hill/blob/master/README.md#team-
->>>>>>> 693708b04b48ede7df1326b317363a7e9920cdd6
